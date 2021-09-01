@@ -6,7 +6,6 @@ def sum(sen, gosen, man):
     return sen * 1000 + gosen * 5000 + man * 10000
 
 def resolve():
-    # -*- coding: utf-8 -*-b
     n, y = map(int, input().split())
 
     s = -1 #千円の枚数
@@ -16,6 +15,8 @@ def resolve():
     while i <= n and finish == False:
         j = 0
         while j <= n and finish == False:
+            if i < 0 or j < 0 or n - i - j < 0:
+                break;
             if sum(i, j, n - i - j) == y:
                 finish = True
                 s = i
