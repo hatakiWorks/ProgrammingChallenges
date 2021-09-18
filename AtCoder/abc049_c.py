@@ -7,21 +7,22 @@ sys.setrecursionlimit(10**6)
 
 words = {'dream', 'dreamer', 'erase', 'eraser'}
 
-def check_daydream(s, t):
-    if s == t:
+def check_daydream(s, t_pos):
+    if len(s) == t_pos:
         return True
-    if len(t) == 0 or s.find(t) == 0:
+    if len(s) > t_pos:
         for w in words:
-            if len(s) > len(t):
-                if check_daydream(s,t + w) == True:
+            #print(t_pos, len(w))
+            if w == s[t_pos : t_pos + len(w)]:
+                if check_daydream(s,t_pos + len(w)) == True:
                     return True
     return False
 
 def resolve():
     s = input()
-    t = ''
+    t_pos = 0
 
-    if check_daydream(s,t) == True:
+    if check_daydream(s,t_pos) == True:
         print('YES')
     else:
         print('NO')
