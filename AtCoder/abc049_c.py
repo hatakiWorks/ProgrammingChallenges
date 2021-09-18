@@ -10,10 +10,11 @@ words = {'dream', 'dreamer', 'erase', 'eraser'}
 def check_daydream(s, t):
     if s == t:
         return True
-    for w in words:
-        if len(s) > len(t):
-            if check_daydream(s,t + w) == True:
-                return True
+    if len(t) == 0 or s.find(t) == 0:
+        for w in words:
+            if len(s) > len(t):
+                if check_daydream(s,t + w) == True:
+                    return True
     return False
 
 def resolve():
