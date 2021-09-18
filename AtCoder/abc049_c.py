@@ -12,7 +12,6 @@ def check_daydream(s, t_pos):
         return True
     if len(s) > t_pos:
         for w in words:
-            #print(t_pos, len(w))
             if w == s[t_pos : t_pos + len(w)]:
                 if check_daydream(s,t_pos + len(w)) == True:
                     return True
@@ -20,9 +19,8 @@ def check_daydream(s, t_pos):
 
 def resolve():
     s = input()
-    t_pos = 0
 
-    if check_daydream(s,t_pos) == True:
+    if check_daydream(s,0) == True:
         print('YES')
     else:
         print('NO')
